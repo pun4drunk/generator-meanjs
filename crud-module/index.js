@@ -110,6 +110,23 @@ var ModuleGenerator = yeoman.generators.Base.extend({
       }.bind(this));
     }
   },
+  
+  askForI18nSupport: function() {
+
+      var done = this.async();
+
+      var prompts = [{
+        name: 'i18n',
+        message: 'Would you like to enable i18n with your module? (y/N)',
+        default: 'n'
+      }];
+
+      this.prompt(prompts, function(props) {
+        this.i18n = props.i18n;
+
+        done();
+      }.bind(this));
+  },
 
   renderModule: function() {
     // Create module folder
