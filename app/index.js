@@ -150,6 +150,11 @@ module.exports = generators.Base.extend({
       message: 'What is your company/author name?'
     }, {
       type: 'confirm',
+      name: 'useI18n',
+      message: 'Whould you like to enable i18n in you application?',
+      default: true
+    }, {
+      type: 'confirm',
       name: 'addArticleExample',
       message: 'Would you like to generate the article example CRUD module?',
       default: true
@@ -165,6 +170,7 @@ module.exports = generators.Base.extend({
       this.appDescription = props.appDescription;
       this.appKeywords = props.appKeywords;
       this.appAuthor = props.appAuthor;
+      this.useI18n = props.useI18n;
       this.addArticleExample = props.addArticleExample;
       this.addChatExample = props.addChatExample;
 
@@ -226,6 +232,18 @@ module.exports = generators.Base.extend({
       }
       done();
     });
+  },
+  
+  replaceConfigAssets: function() {
+    
+    var done = this.async();
+    
+    if (this.useI18n) {
+        var assetFile = (fs.readFileSync(folderPath + 'config/assets/default.js')).toString();
+        
+    }
+    
+    
   },
 
   removeExampleModules: function () {
