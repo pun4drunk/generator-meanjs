@@ -1,22 +1,22 @@
 <section>
   <div class="page-header">
-    <h1><%= humanizedPluralName %></h1>
+    <h1>{{'<%= humanizedPluralName %>'|translate}}</h1>
   </div>
   <div class="list-group">
     <a ng-repeat="<%= slugifiedSingularName %> in vm.<%= camelizedPluralName %>"
        ui-sref="<%= camelizedPluralName %>.view({ <%= slugifiedSingularName %>Id: <%= slugifiedSingularName %>._id })"
        class="list-group-item">
       <small class="list-group-item-text">
-        Posted on
+        {{'modules.client.POSTED_ON'|translate}}
         <span ng-bind="<%= camelizedSingularName %>.created | date:'mediumDate'"></span>
-        by
+        {{'modules.client.POSTED_BY'|translate}}
         <span ng-if="<%= camelizedSingularName %>.user" ng-bind="<%= camelizedSingularName %>.user.displayName"></span>
-        <span ng-if="!<%= camelizedSingularName %>.user">Deleted User</span>
+        <span ng-if="!<%= camelizedSingularName %>.user">{{'Deleted User'|translate}}</span>
       </small>
       <h4 class="list-group-item-heading" ng-bind="<%= slugifiedSingularName %>.name"></h4>
     </a>
   </div>
   <div class="alert alert-warning text-center" ng-if="vm.<%= camelizedPluralName %>.$resolved && !vm.<%= camelizedPluralName %>.length">
-    No <%= humanizedPluralName %> yet, why don't you <a ui-sref="<%= camelizedPluralName %>.create">create one</a>?
+    {{"No <%= humanizedPluralName %> yet, why don't you"|translate}} <a data-ui-sref="<%= camelizedPluralName %>.create">{{'create one'|translate}}</a>?
   </div>
 </section>

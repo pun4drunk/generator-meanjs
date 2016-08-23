@@ -14,12 +14,12 @@
   </div>
   <small>
     <em class="text-muted">
-      Posted on
+      {{'modules.client.POSTED_ON'|translate}}
       <span ng-bind="vm.<%= camelizedSingularName %>.created | date:'mediumDate'"></span>
-      by
+      {{'modules.client.POSTED_BY'|translate}}
       <span ng-if="vm.<%= camelizedSingularName %>.user"
             ng-bind="vm.<%= camelizedSingularName %>.user.displayName"></span>
-      <span ng-if="!vm.<%= camelizedSingularName %>.user">Deleted User</span>
+      <span ng-if="!vm.<%= camelizedSingularName %>.user">{{'Deleted User'|translate}}</span>
     </em>
   </small>
   <p class="lead" ng-bind="vm.<%= camelizedSingularName %>.content"></p>

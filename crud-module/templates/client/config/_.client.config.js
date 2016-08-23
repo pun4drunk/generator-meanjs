@@ -5,9 +5,9 @@
     .module('<%= slugifiedPluralName %>')
     .run(menuConfig);
 
-  menuConfig.$inject = ['menuService'];
+  menuConfig.$inject = ['menuService', '$translate'];
 
-  function menuConfig(menuService) {
+  function menuConfig(menuService, $translate) {
     // Set top bar menu items
     menuService.addMenuItem('topbar', {
       title: '<%= humanizedPluralName %>',
@@ -28,5 +28,8 @@
       state: '<%= slugifiedPluralName %>.create',
       roles: ['user']
     });
+
+    $translate('List <%= humanizedPluralName %>');
+    $translate('Create <%= humanizedSingularName %>');
   }
 }());

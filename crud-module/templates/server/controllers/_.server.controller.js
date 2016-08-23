@@ -99,7 +99,7 @@ exports.<%= camelizedSingularName %>ByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: '<%= humanizedSingularName %> is invalid'
+      message: i18n.__('<%= humanizedSingularName %> is invalid')
     });
   }
 
@@ -108,7 +108,7 @@ exports.<%= camelizedSingularName %>ByID = function(req, res, next, id) {
       return next(err);
     } else if (!<%= camelizedSingularName %>) {
       return res.status(404).send({
-        message: 'No <%= humanizedSingularName %> with that identifier has been found'
+        message: i18n.__('No <%= humanizedSingularName %> with that identifier has been found')
       });
     }
     req.<%= camelizedSingularName %> = <%= camelizedSingularName %>;
